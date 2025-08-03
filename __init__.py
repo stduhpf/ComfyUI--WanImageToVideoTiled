@@ -8,6 +8,7 @@ NODE_CLASS_MAPPINGS = {
     "WanVaceToVideoTiledVAE": WanVaceToVideoTiledVAE,
     "WanCameraImageToVideoTiledVAE":WanCameraImageToVideoTiledVAE,
     "WanPhantomSubjectToVideoTiledVAE": WanPhantomSubjectToVideoTiledVAE,
+    "WanTrackToVideoTiledVAE": WanTrackToVideoTiledVAE,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -18,4 +19,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "WanVaceToVideoTiledVAE": "WanVaceToVideo (Tiled VAE encode)",
     "WanCameraImageToVideoTiledVAE": "WanCameraImageToVideo (Tiled VAE encode)",
     "WanPhantomSubjectToVideoTiledVAE": "WanPhantomSubjectToVideo (Tiled VAE encode)",
+    "WanTrackToVideoTiledVAE": "WanTrackToVideo (Tiled VAE encode)",
 }
