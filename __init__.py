@@ -5,6 +5,7 @@ NODE_CLASS_MAPPINGS = {
     "WanFunControlToVideoTiledVAE": WanFunControlToVideoTiledVAE,
     "WanFirstLastFrameToVideoTiledVAE": WanFirstLastFrameToVideoTiledVAE,
     "WanFunInpaintToVideoTiledVAE": WanFunInpaintToVideoTiledVAE,
+    "WanVaceToVideoTiledVAE": WanVaceToVideoTiledVAE,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -12,4 +13,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "WanFunControlToVideoTiledVAE": "WanFunControlToVideo (Tiled VAE encode)",
     "WanFirstLastFrameToVideoTiledVAE": "WanFirstLastFrameToVideo (Tiled VAE encode)",
     "WanFunInpaintToVideoTiledVAE": "WanFunInpaintToVideo (Tiled VAE encode)",
+    "WanVaceToVideoTiledVAE": "WanVaceToVideo (Tiled VAE encode)"
 }
