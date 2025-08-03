@@ -1,10 +1,10 @@
 # WanImageToVideoTiledVAE for ComfyUI
 
-This is a custom node for ComfyUI that replaces the WanImageToVideo node but uses a Tiled VAE approach to reduce VRAM requirements.
+This is a set of custom nodes for ComfyUI that replaces nodes like WanImageToVideo but using a Tiled VAE approach to reduce VRAM requirements.
 
 ## Description
 
-WanImageToVideoTiledVAE is designed to be a drop-in replacement for the WanImageToVideo node in ComfyUI. By using a tiled VAE, it significantly reduces the VRAM needed, making it more accessible for users with limited resources. I found it very useful for [ComfyUI-zluda](https://github.com/patientx/ComfyUI-Zluda), since the VAE is particularly VRAM-hungry there.
+WanImageToVideo (Tiled VAE encode) is designed to be a drop-in replacement for the WanImageToVideo node in ComfyUI. By using a tiled VAE, it significantly reduces the VRAM needed, making it more accessible for users with limited resources. I found it very useful for [ComfyUI-zluda](https://github.com/patientx/ComfyUI-Zluda), since the VAE is particularly VRAM-hungry there.
 
 ## Installation
 
@@ -19,38 +19,30 @@ git clone https://github.com/stduhpf/ComfyUI--WanImageToVideoTiled.git /path/to/
 
 ## Usage
 
-To use this node in ComfyUI:
+Once the extension is installed, you can just replace the original node with the one from this extension.
 
-1. Add the `WanImageToVideoTiledVAE` node to your workflow.
-2. Connect the required inputs (positive and negative conditioning, VAE model, start image).
-3. Optionally, connect a start image or clip vision output.
-4. Run the workflow.
-
-## Inputs
+## New Inputs (from the `VAE encode (Tiled)` node)
 
 | Input | Type | Description |
 |-------|------|-------------|
-| positive | CONDITIONING | Positive conditioning input. |
-| negative | CONDITIONING | Negative conditioning input. |
-| vae | VAE | The VAE model to use. |
-| width | INT | Width of the video, default is 832. |
-| height | INT | Height of the video, default is 480. |
-| length | INT | Number of video frames, default is 81. |
-| batch_size | INT | Batch size, default is 1. |
 | tile_size | INT | Size of the tiles, default is 512. |
 | overlap | INT | Overlap between tiles, default is 64. |
 | temporal_size | INT | Amount of frames to encode at a time, default is 64. |
 | temporal_overlap | INT | Amount of frames to overlap, default is 8. |
-| start_image | IMAGE (optional) | Optional start image. |
-| clip_vision_output | CLIP_VISION_OUTPUT (optional) | Optional clip vision output. |
 
-## Outputs
+## Included nodes:
 
-| Output | Type | Description |
-|--------|------|-------------|
-| latent | LATENT | Empty latents with start_image encoded as first frame. |
-| positive | CONDITIONING | Processed positive conditioning. |
-| negative | CONDITIONING | Processed negative conditioning. |
+Here are the nodes included in this extension, checkmark means the node has been succesfuly tested. Unchecked ones should work too, if you try these nodes and want to give feedback, you can open an issue or a discussion.
+
+- [x] WanImageToVideo (Tiled VAE encode) 
+- [x] WanFunControlToVideo (Tiled VAE encode)
+- [x] WanFirstLastFrameToVideo (Tiled VAE encode)
+- [ ] WanFunInpaintToVideo (Tiled VAE encode)
+- [x] WanVaceToVideo (Tiled VAE encode)
+- [ ] WanCameraImageToVideo (Tiled VAE encode)
+- [ ] WanPhantomSubjectToVideo (Tiled VAE encode)
+- [ ] WanTrackToVideo (Tiled VAE encode)
+- [x] Wan22ImageToVideoLatent (Tiled VAE encode)
 
 ## License
 
