@@ -184,3 +184,34 @@ class WanFirstLastFrameToVideoTiledVAE:
         out_latent = {}
         out_latent["samples"] = latent
         return (positive, negative, out_latent)
+
+class WanFunInpaintToVideoTiledVAE:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {"required": {"positive": ("CONDITIONING", ),
+                                "negative": ("CONDITIONING", ),
+                                "vae": ("VAE", ),
+                                "width": ("INT", {"default": 832, "min": 16, "max": nodes.MAX_RESOLUTION, "step": 16}),
+                                "height": ("INT", {"default": 480, "min": 16, "max": nodes.MAX_RESOLUTION, "step": 16}),
+                                "length": ("INT", {"default": 81, "min": 1, "max": nodes.MAX_RESOLUTION, "step": 4}),
+                                "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
+
+                                "tile_size": ("INT", {"default": 512, "min": 64, "max": 4096, "step": 64}),
+                                "overlap": ("INT", {"default": 64, "min": 0, "max": 4096, "step": 32}),
+                                "temporal_size": ("INT", {"default": 64, "min": 8, "max": 4096, "step": 4, "tooltip": "Amount of frames to encode at a time."}),
+                                "temporal_overlap": ("INT", {"default": 8, "min": 4, "max": 4096, "step": 4, "tooltip": "Amount of frames to overlap."})
+                },
+                "optional": {"clip_vision_output": ("CLIP_VISION_OUTPUT", ),
+                                "start_image": ("IMAGE", ),
+                                "end_image": ("IMAGE", ),
+                }}
+
+    RETURN_TYPES = ("CONDITIONING", "CONDITIONING", "LATENT")
+    RETURN_NAMES = ("positive", "negative", "latent")
+    FUNCTION = "encode"
+
+    CATEGORY = "conditioning/video_models"
+
+    def encode(self, positive, negative, vae, width, height, length, batch_size,  tile_size, overlap, temporal_size=64, temporal_overlap=8, start_image=None, end_image=None, clip_vision_output=None):
+        flfv = WanFirstLastFrameToVideoTiledVAE()
+        return flfv.encode(positive, negative, vae, width, height, length, batch_size,tile_size, overlap,temporal_size=temporal_size,temporal_overlap=temporal_overlap,  start_image=start_image, end_image=end_image, clip_vision_start_image=clip_vision_output)
