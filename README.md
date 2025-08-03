@@ -14,7 +14,7 @@ To install this node, follow these steps:
 2. Restart ComfyUI to load the new node.
 
 ```bash
-git clone <repository-url> /path/to/ComfyUI/custom_nodes/WanImageToVideoTiledVAE
+git clone https://github.com/stduhpf/ComfyUI--WanImageToVideoTiled.git /path/to/ComfyUI/custom_nodes/WanImageToVideoTiledVAE
 ```
 
 ## Usage
