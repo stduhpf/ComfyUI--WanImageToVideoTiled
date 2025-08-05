@@ -506,7 +506,7 @@ class Wan22ImageToVideoLatentTiledVAE:
                             "length": ("INT", {"default": 49, "min": 1, "max": nodes.MAX_RESOLUTION, "step": 4}),
                             "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
 
-                            "tile_size": ("INT", {"default": 512, "min": 64, "max": 4096, "step": 64}),
+                            "tile_size": ("INT", {"default": 512, "min": 128, "max": 4096, "step": 64}),
                             "overlap": ("INT", {"default": 64, "min": 0, "max": 4096, "step": 32}),
                             "temporal_size": ("INT", {"default": 64, "min": 8, "max": 4096, "step": 4, "tooltip": "Amount of frames to encode at a time."}),
                             "temporal_overlap": ("INT", {"default": 8, "min": 4, "max": 4096, "step": 4, "tooltip": "Amount of frames to overlap."})
